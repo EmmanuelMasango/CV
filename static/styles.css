@@ -619,3 +619,29 @@ img{
     column-gap: 3.5rem;
   }
 }
+
+/* ========== PRINT FIXES ========== */
+@media print {
+
+    body {
+        zoom: 0.95; 
+    }
+
+    section {
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+
+    .bd-grid,
+    .references__content,
+    .education__content,
+    .experience__content {
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+
+    h1, h2, h3 {
+        page-break-after: avoid;
+        break-after: avoid;
+    }
+}
