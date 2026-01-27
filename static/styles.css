@@ -620,75 +620,73 @@ img{
   }
 }
 
-/* ========== HARD PRINT RESET ========== */
+/* ================= PRINT-ONLY FIX ================= */
 @media print {
 
-  /* Hide all interactive / fixed UI */
-  .l-header,
-  .nav,
-  .nav__menu,
-  .nav__toggle,
-  .change-theme,
-  .generate-pdf,
-  .home__button-movil,
-  .scrolltop {
-    display: none !important;
-  }
+    /* Hide all interactive / fixed UI */
+    .l-header,
+    .nav,
+    .nav__menu,
+    .nav__toggle,
+    .change-theme,
+    .generate-pdf,
+    .home__button-movil,
+    .scrolltop {
+        display: none !important;
+    }
 
-  /* Kill shadows & animations */
-  * {
-    box-shadow: none !important;
-    animation: none !important;
-    transition: none !important;
-  }
+    /* Flatten resume into single column */
+    .resume {
+        display: block !important;
+        width: 100% !important;
+        box-shadow: none !important;
+    }
 
-  /* Force A4 geometry */
-  html, body {
-    width: 210mm;
-    height: 297mm;
-    margin: 0;
-    padding: 0;
-  }
+    .resume__left,
+    .resume__right {
+        width: 100% !important;
+        padding: 0 15mm !important;
+    }
 
-  /* Fix container width */
-  .bd-container {
-    max-width: 210mm !important;
-    width: 210mm !important;
-    margin: 0 auto !important;
-  }
+    /* Flatten all grids */
+    .bd-grid, .bd-grid2, .skills__content, .languages__content, .interests__container, .references__container {
+        display: block !important;
+        gap: 0 !important;
+    }
 
-  /* Simplify layout for print */
-  .resume {
-    display: block !important;
-  }
+    /* Prevent page breaks inside sections */
+    section,
+    .education__content,
+    .references__content,
+    .skills__content,
+    .languages__content {
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+    }
 
-  .resume__left,
-  .resume__right {
-    padding: 0 15mm !important;
-  }
+    /* Force proper A4 sizing */
+    html, body {
+        width: 210mm !important;
+        min-height: 297mm !important;
+        margin: 0 auto !important;
+        background: white !important;
+        color: black !important;
+        font-size: 11pt !important;
+        line-height: 1.35 !important;
+    }
 
-  /* Prevent section splitting */
-  section,
-  .education__content,
-  .references__content {
-    break-inside: avoid !important;
-    page-break-inside: avoid !important;
-  }
+    a {
+        color: black !important;
+        text-decoration: none !important;
+    }
 
-  /* Font tuning for print */
-  body {
-    font-size: 11pt;
-    line-height: 1.35;
-    background: white !important;
-  }
-
-  a {
-    color: black !important;
-    text-decoration: none !important;
-  }
+    img {
+        max-width: 100% !important;
+        height: auto !important;
+    }
 }
 
 @page {
-  size: A4;
-  margin: 15mm;
+    size: A4;
+    margin: 15mm;
 }
