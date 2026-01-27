@@ -645,3 +645,16 @@ img{
         break-after: avoid;
     }
 }
+
+@page {
+    size: A4;
+    margin: 20mm;
+}
+
+@media print {
+    body {
+        width: 210mm;
+        min-height: 297mm;
+        margin: 0 auto;
+    }
+}
