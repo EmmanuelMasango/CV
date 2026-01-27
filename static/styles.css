@@ -620,41 +620,75 @@ img{
   }
 }
 
-/* ========== PRINT FIXES ========== */
+/* ========== HARD PRINT RESET ========== */
 @media print {
 
-    body {
-        zoom: 0.95; 
-    }
+  /* Hide all interactive / fixed UI */
+  .l-header,
+  .nav,
+  .nav__menu,
+  .nav__toggle,
+  .change-theme,
+  .generate-pdf,
+  .home__button-movil,
+  .scrolltop {
+    display: none !important;
+  }
 
-    section {
-        page-break-inside: avoid;
-        break-inside: avoid;
-    }
+  /* Kill shadows & animations */
+  * {
+    box-shadow: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
 
-    .bd-grid,
-    .references__content,
-    .education__content,
-    .experience__content {
-        page-break-inside: avoid;
-        break-inside: avoid;
-    }
+  /* Force A4 geometry */
+  html, body {
+    width: 210mm;
+    height: 297mm;
+    margin: 0;
+    padding: 0;
+  }
 
-    h1, h2, h3 {
-        page-break-after: avoid;
-        break-after: avoid;
-    }
+  /* Fix container width */
+  .bd-container {
+    max-width: 210mm !important;
+    width: 210mm !important;
+    margin: 0 auto !important;
+  }
+
+  /* Simplify layout for print */
+  .resume {
+    display: block !important;
+  }
+
+  .resume__left,
+  .resume__right {
+    padding: 0 15mm !important;
+  }
+
+  /* Prevent section splitting */
+  section,
+  .education__content,
+  .references__content {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  /* Font tuning for print */
+  body {
+    font-size: 11pt;
+    line-height: 1.35;
+    background: white !important;
+  }
+
+  a {
+    color: black !important;
+    text-decoration: none !important;
+  }
 }
 
 @page {
-    size: A4;
-    margin: 20mm;
-}
-
-@media print {
-    body {
-        width: 210mm;
-        min-height: 297mm;
-        margin: 0 auto;
-    }
+  size: A4;
+  margin: 15mm;
 }
